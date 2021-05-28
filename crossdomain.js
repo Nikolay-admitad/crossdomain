@@ -9,6 +9,13 @@ var utmsCookieName = 'utm_params_admitad';
  
 var utmsCookieValue = '?';
 
+var getSourceUtmCookie = function (cookieName) {
+   var matches = document.cookie.match(new RegExp(
+       '(?:^|; )' + cookieName.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
+   ));
+   return matches ? decodeURIComponent(matches[1]) : undefined;
+};
+
 function getParameterByName(name) {
    var name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
