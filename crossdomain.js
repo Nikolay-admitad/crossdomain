@@ -67,7 +67,7 @@ setUtmsCookie();
 var links = document.getElementsByTagName("a");
  
 // If there is a cookie with utm tags, then we add tags when switching to another domain
-var utms = getSourceCookie(utmsCookieName);
+var utms = getSourceUtmCookie(utmsCookieName);
 if (utms) {
    for (var i = 0; i < links.length; i++) {
        var link = links[i];
